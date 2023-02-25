@@ -1,0 +1,120 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Roboto+Mono&display=swap');
+.login-page{
+    margin: 0;
+    padding: 0;
+    min-width: 100vh;
+    min-height: 100vh;
+    background-image: url(../../../public/bg-01.jpg);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+}
+.login-box{
+    top: 23%;
+    left: 33%;
+    position: absolute;
+    height: 460px;
+    width: 500px;
+    background-color: rgba(240, 243, 246);
+    border-radius: 12.5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.login-box input{
+    width: 370px;
+    border-radius: 7px;
+    height: 25px;
+    border: 1px solid rgb(123, 7, 131);
+}
+.login-text{
+    position: absolute;
+    top: 5%;
+    left: 23%;
+    font-size: 35px;
+    color: rgb(57, 55, 55);
+    font-family: 'Roboto Mono', monospace;
+}
+.mail-text{
+    position: absolute;
+    top: 22%;
+    left: 10%;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.mail-in{
+    position: absolute;
+    top: 27.5%;
+    left: 10%;
+    padding: 10px;
+}
+.pw-text{
+    position: absolute;
+    top: 42%;
+    left: 10%;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.pw-in{
+    position: absolute;
+    top: 47.5%;
+    left: 10%;
+    padding: 10px;
+}
+.login-btn{
+    position: absolute;
+    top: 62%;
+    left: 10%;
+    width: 395px;
+    height: 45px;
+    border-radius: 7px;
+    color: aliceblue;
+    font-size: 17px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: rgb(53, 52, 52);
+}
+.google-btn{
+    position: absolute;
+    top: 83%;
+    left: 10%;
+    width: 395px;
+    height: 45px;
+    border-radius: 7px;
+    color: aliceblue;
+    font-size: 17px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: rgb(53, 52, 52);
+}
+.login-btn:hover, .google-btn:hover{
+    background-image: linear-gradient(to right, rgb(120, 190, 252) , rgb(212, 0, 255));;
+}
+.signuplink-txt1{
+    position: absolute;
+    top: 74%;
+    left: 28%;
+    font-size: 16px;
+}
+.signuplink-txt2{
+    position: absolute;
+    top: 74%;
+    left: 52%;
+    font-size: 16px;
+}
+.pwerror1-text{
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top: 43%;
+    left: 27%;
+    font-family: 'Quicksand', sans-serif;
+}
+.mailerror1-text{
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top: 23%;
+    left: 20%;
+    font-family: 'Quicksand', sans-serif;
+
+}
