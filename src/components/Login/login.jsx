@@ -1,6 +1,4 @@
 import './login.css';
-import { auth, provider } from "../../firebase";
-import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useStates } from '../../States';
@@ -8,20 +6,7 @@ import { useStates } from '../../States';
 function Login() {
 
   // UseStates
-  const { setEmail, setPassword, logincheck, mailerror2, pwerror2 } = useStates();
-  
-  const [user, setUser] = useState(null);
-
-  // To enable google login
-  const googleLogin = async () => {
-    try {
-      await auth.signInWithPopup(provider);
-      setUser(await auth.currentUser);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  console.log(user);
+  const { setEmail, setPassword, logincheck, mailerror2, pwerror2,googleLogin } = useStates();
   return (
     <>
       <div className='login-page'>

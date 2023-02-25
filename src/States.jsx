@@ -1,11 +1,13 @@
 import { createContext, useContext, useState } from "react";
+import { auth, provider } from "./firebase";
 import { signInWithEmailAndPassword,createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../src/firebase";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import axios from "./axios";
 
 const Context = createContext();
 export const States = ({ children }) => {
+    const [user, setUser] = useState(null);
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -16,6 +18,7 @@ export const States = ({ children }) => {
     const [mailerror2, setmailerror2] = useState("");
     const [cpwerror, setcpwerror] = useState("");
     const [unerror, setunerror] = useState("");
+
     var navigate = useNavigate();
 
     const passMatch = (e) => {
@@ -33,8 +36,10 @@ export const States = ({ children }) => {
             setcpwerror("*Confirm Password required")}
         else if(!(password===confirmpw)){
             setPwerror("[Your passwords do not match]")}
-        else if(password===confirmpw){
-            signUp()}
+        else if(password===confirmpw)
+        {
+          signUp();
+        }
     };
 
 
@@ -50,11 +55,55 @@ export const States = ({ children }) => {
       }
     };
 
+    const SendtoDB = (uid,type) => {
+    const userDetails = {
+      uid : uid,
+      signupUsername: username,
+      signupMail: email,
+      signupPassword: password,
+      signupType: type,
+    };
+    axios.post('/signup/create', userDetails).then((response)=>{
+      console.log(response);
+    });
+  };
+
+    const SendtoDB2 = (username,email,uid,type) => {
+    const userDetails = {
+      uid : uid,
+      signupUsername: username,
+      signupMail: email,
+      signupPassword: password,
+      signupType: type,
+    };
+    axios.post('/signup/create', userDetails).then((response)=>{
+      console.log(response);
+    });
+  };
+
+
+
+
+  const googleLogin = async () => 
+  {
+    try {
+      await auth.signInWithPopup(provider);
+      setUser(await auth.currentUser);
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(user);
+    SendtoDB2(user.displayName,user.email,user.uid,"google");
+  };
+
+
 
     const signIn = (e) => {
       signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then((userCredential) => 
+        {
           console.log(userCredential.user);
+          SendtoDB();
           navigate("/home");
         })
         .catch((error) => {
@@ -86,8 +135,10 @@ export const States = ({ children }) => {
 
   const signUp = (e) => {
       createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          console.log(userCredential.user);
+        .then((userCredential) => 
+        {
+          console.log(userCredential.user.uid);
+          SendtoDB(userCredential.user.uid,"mail");
           navigate("/home");
         })
         .catch((error) => {
@@ -125,7 +176,9 @@ export const States = ({ children }) => {
             pwerror2,
             setPwerror2,
             mailerror2,
-            setmailerror2
+            setmailerror2,
+            SendtoDB,
+            googleLogin
         }}
         >{children}
         </Context.Provider>
