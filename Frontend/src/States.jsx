@@ -8,6 +8,7 @@ import axios from "./axios";
 const Context = createContext();
 export const States = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [product,setProduct] = useState([]);
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -43,6 +44,16 @@ export const States = ({ children }) => {
     };
 
 
+     const getAllProducts = () => {
+      fetch('http://localhost:1403/product/getall')
+        .then((res) => res.json())
+        .then((result) => {
+        setProduct(result);
+          console.log(result);
+        });
+       };
+
+
     const logincheck = (e) => {
       setPwerror2("");
       setmailerror2("");
@@ -54,6 +65,8 @@ export const States = ({ children }) => {
         signIn()
       }
     };
+
+
 
     const SendtoDB = (uid,type) => {
     const userDetails = {
@@ -67,6 +80,7 @@ export const States = ({ children }) => {
       console.log(response);
     });
   };
+
 
     const SendtoDB2 = (username,email,uid,type) => {
     const userDetails = {
@@ -94,6 +108,7 @@ export const States = ({ children }) => {
     }
     console.log(user);
     SendtoDB2(user.displayName,user.email,user.uid,"google");
+    navigate("/home");
   };
 
 
@@ -178,7 +193,10 @@ export const States = ({ children }) => {
             mailerror2,
             setmailerror2,
             SendtoDB,
-            googleLogin
+            googleLogin,
+            product,
+            setProduct,
+            getAllProducts
         }}
         >{children}
         </Context.Provider>

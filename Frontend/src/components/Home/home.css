@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap');
+.product-page{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    z-index: -10;
+    margin-top: 70px;
+}
+.product-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    width: 225px;
+    height: 270px;
+    border-radius: 7.5px;
+    position: relative;
+}
+.edit-btn{
+    height: 30px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+.product-div:hover{
+    transform: scale(1.01);
+}
+.product-img{
+    height: 150px;
+    width: 140px;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+.product-name{
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: 'Source Serif Pro', serif;
+}
+.product-rate{
+    font-size: 15px;
+    display: flex;
+    font-family: 'Source Serif Pro', serif;
+}

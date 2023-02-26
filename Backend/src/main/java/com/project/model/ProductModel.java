@@ -1,0 +1,59 @@
+package com.project.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class ProductModel{
+	@Id
+	private int productId;
+	private String productName;
+	private String productUrl;
+	private float productRate;
+	private String productCategory;
+	private boolean availability;
+	
+	public boolean isAvailability() {
+		return availability;
+	}
+	public void setAvailability(boolean availability) {
+		this.availability = availability;
+	}
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public String getProductUrl() {
+		return productUrl;
+	}
+	public void setProductUrl(String productUrl) {
+		this.productUrl = productUrl;
+	}
+	public float getProductRate() {
+		return productRate;
+	}
+	public void setProductRate(float productRate) {
+		this.productRate = productRate;
+	}
+	public String getProductCategory() {
+		return productCategory;
+	}
+	public void setProductCategory(String productCategory) {
+		this.productCategory = productCategory;
+	}
+	
+	@Override
+	public String toString() {
+		return "ProductModel [ProductId=" + productId + ", productName=" + productName + ", productUrl=" + productUrl
+				+ ", productRate=" + productRate + ", productCategory=" + productCategory + "]";
+	}
+	
+}
