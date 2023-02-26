@@ -44,6 +44,10 @@ export const States = ({ children }) => {
     };
 
 
+    function refreshPage() {
+      window.location.reload(false);
+    }
+
      const getAllProducts = () => {
       fetch('http://localhost:1403/product/getall')
         .then((res) => res.json())
@@ -64,6 +68,26 @@ export const States = ({ children }) => {
       else{
         signIn()
       }
+    };
+
+
+    const deletefromDB = (id) => {
+      swal({
+        title: "Conformation",
+        text: "Are you sure you want to delete this product ?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => 
+      {
+        if(willDelete){
+          axios.delete('/product/delete', { params: { productId:id } }).then((response)=>{
+            console.log(response);
+            refreshPage();
+          });
+        }
+      });
     };
 
 
@@ -118,7 +142,9 @@ export const States = ({ children }) => {
         .then((userCredential) => 
         {
           console.log(userCredential.user);
-          SendtoDB();
+          if(email==="theharryverse@gmail.com")
+          navigate("/admin/home")
+          else
           navigate("/home");
         })
         .catch((error) => {
@@ -196,7 +222,8 @@ export const States = ({ children }) => {
             googleLogin,
             product,
             setProduct,
-            getAllProducts
+            getAllProducts,
+            deletefromDB
         }}
         >{children}
         </Context.Provider>

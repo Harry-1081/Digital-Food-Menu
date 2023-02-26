@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+.add-page{
+    margin: 0;
+    padding: 0;
+    min-width: 100vh;
+    min-height: 100vh;
+    background-image: url(../../../public/bg-01.jpg);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+}
+.add-box{
+    top: 16%;
+    left: 33%;
+    position: absolute;
+    height: 550px;
+    width: 500px;
+    background-color: rgba(240, 243, 246);
+    border-radius: 12.5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.add-text{
+    position: absolute;
+    top: 6%;
+    left: 26%;
+    font-size: 30px;
+    color: rgb(57, 55, 55);
+    font-family: 'Quicksand', sans-serif;
+}
+.prodname-text{
+    position: absolute;
+    top: 17.5%;
+    left: 10%;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+.prodname-in{
+    position: absolute;
+    top: 22.5%;
+    left: 10%;
+    padding: 10px;
+    width: 370px;
+    border-radius: 7px;
+    height: 20px;
+    border: 1px solid rgb(123, 7, 131);
+}
+.prodrate-text{
+    position: absolute;
+    top: 33.5%;
+    left: 10%;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+}
+.prodrate-in{
+    position: absolute;
+    top: 38.5%;
+    left: 10%;
+    padding: 10px;
+    width: 370px;
+    border-radius: 7px;
+    height: 20px;
+    border: 1px solid rgb(123, 7, 131);
+}
+.produrl-text{
+    position: absolute;
+    top: 49.5%;
+    left: 10%;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+}
+.produrl-in{
+    position: absolute;
+    top: 54.5%;
+    left: 10%;
+    padding: 10px;
+    width: 370px;
+    border-radius: 7px;
+    height: 20px;
+    border: 1px solid rgb(123, 7, 131);
+}
+.prodcategory-text{
+    position: absolute;
+    top: 65.5%;
+    left: 10%;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.prodcategory-in{
+    position: absolute;
+    top: 70.5%;
+    left: 10%;
+    padding: 10px;
+    width: 390px;
+    border-radius: 7px;
+    height: 50px;
+    font-family: 'Quicksand', sans-serif;
+    border: 1px solid rgb(123, 7, 131);
+}
+.addprod-btn{
+    position: absolute;
+    top: 83.5%;
+    left: 10%;
+    width: 396px;
+    height: 46px;
+    border-radius: 7px;
+    color: aliceblue;
+    font-size: 17px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: rgb(53, 52, 52);
+}
+.addprod-btn:hover{
+    background-image: linear-gradient(to right, rgb(120, 190, 252) , rgb(212, 0, 255));;
+}

@@ -19,6 +19,21 @@ public class ProductServiceInt implements ProductService{
 	public List<ProductModel> getProducts() {
 		return (List<ProductModel>)productRepo.findAll();
 	}
+
+	@Override
+	public ProductModel createProduct(ProductModel productModel) {
+		return productRepo.save(productModel);
+	}
+
+	@Override
+	public void deleteProduct(Integer productId) {
+		productRepo.deleteById(productId);
+	}
+
+	@Override
+	public void updateProduct(ProductModel productModel) {
+		productRepo.save(productModel);
+	}
 	
 	
 }
