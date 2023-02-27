@@ -4,8 +4,7 @@ import { States } from './States';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Home from './components/Home/Home';
-import AdminHome from './components/Admin/Admin';
-import AddProduct from './components/Admin/AddProduct';
+import AdminHome from './components/Admin/AdminHome';
 
 function App() {
   return (
@@ -22,11 +21,6 @@ function App() {
             <Route
               path='/admin/home'
               element={<AdminHome/>}
-            />
-
-            <Route
-              path='/admin/add'
-              element={<AddProduct/>}
             />
             
             <Route

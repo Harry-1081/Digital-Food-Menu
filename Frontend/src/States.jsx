@@ -21,6 +21,7 @@ export const States = ({ children }) => {
     const [unerror, setunerror] = useState("");
 
     const [product,setProduct] = useState([]);
+    const [ addprod,setaddprod ] = useState(false);
 
     const [prodname,setProdname] = useState("");
     const [prodrate,setProdrate] = useState("");
@@ -124,7 +125,7 @@ export const States = ({ children }) => {
         swal("This Products exists already")
       }
     });
-    navigate("/admin/home");
+    // navigate("/admin/home");
   };
 
 
@@ -250,7 +251,9 @@ export const States = ({ children }) => {
             setProdrate,
             setProdurl,
             SendtoprodDB,
-            setProdcategory
+            setProdcategory,
+            addprod,
+            setaddprod
         }}
         >{children}
         </Context.Provider>

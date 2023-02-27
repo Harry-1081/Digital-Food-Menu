@@ -2,10 +2,13 @@ import '../Home/Home.css';
 import { useStates } from '../../States';
 import { useEffect } from 'react';
 import { motion } from "framer-motion";
-import { MdAddBox } from "react-icons/md"
-import { Link } from 'react-router-dom';
+import { MdAddBox,MdEdit } from "react-icons/md"
+import AddProduct from './AddProduct';
+import { Tooltip } from '@mui/material';
+import { RiDeleteBinLine } from 'react-icons/ri';
+
 function AdminHome() {
-    const { getAllProducts,product,deletefromDB } = useStates();
+    const { getAllProducts,product,deletefromDB,addprod,setaddprod } = useStates();
 
     useEffect(() => {
         getAllProducts();
@@ -15,23 +18,21 @@ function AdminHome() {
     return (
         <>
          <motion.div className="product-page">
-            <span className='addpage-link'>
-             <Link to="/admin/add">
-              <MdAddBox/>  
-             </Link> 
-            </span>
+         <Tooltip>
+            <button className='addpage-link' onClick={() => setaddprod(true)}>
+              <MdAddBox/> Add New Products
+             {addprod && <AddProduct show={setaddprod}/>}
+            </button>
+         </Tooltip>
+             
            {product.map((product,i) => {
             return(
                 <>
                 <motion.div layout key={i} className="admin-div">
-                    <img alt='edit button' className='edit-btn'
-                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBqvw9fFq2uIc9H7kVCAz964W5Lw9CvK7BrQ&usqp=CAU'></img>
-                    <img alt='delete button' className='delete-btn' 
-                    onClick={function (e) 
-                        {
-                        deletefromDB(product.productId) 
-                        }}
-                    src='https://www.seekpng.com/png/detail/202-2022743_edit-delete-icon-png-download-delete-icon-png.png'></img>
+                    <button className='edit-btn'
+                    ><MdEdit/></button>
+                    <button className='delete-btn' onClick={function (e) {deletefromDB(product.productId)}}
+                    ><RiDeleteBinLine/></button>
                     <img className='product-img' src={product.productUrl} alt=""></img>
                     <span className='product-name'><b>{product.productName}</b></span>
                     <span className='product-rate'><b>{product.productRate}.00 </b></span>
