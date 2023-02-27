@@ -1,4 +1,4 @@
-import './signup.css';
+import './Signup.css';
 // import { auth } from '../../firebase'
 // import { useState } from 'react';
 import { useStates } from '../../States';

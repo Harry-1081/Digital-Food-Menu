@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { States } from './States';
-import Login from './components/Login/login';
-import Signup from './components/signup/signup';
-import Home from './components/Home/home';
-import AdminHome from './components/Admin/admin';
-import AddProduct from './components/Admin/addProduct';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
+import Home from './components/Home/Home';
+import AdminHome from './components/Admin/Admin';
+import AddProduct from './components/Admin/AddProduct';
 
 function App() {
   return (

@@ -14,12 +14,12 @@ public class ProductModel{
 	private String productUrl;
 	private float productRate;
 	private String productCategory;
-	private boolean availability;
+	private String availability;
 	
-	public boolean isAvailability() {
+	public String isAvailability() {
 		return availability;
 	}
-	public void setAvailability(boolean availability) {
+	public void setAvailability(String availability) {
 		this.availability = availability;
 	}
 	public int getProductId() {

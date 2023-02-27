@@ -1,4 +1,4 @@
-import './home.css';
+import './Home.css';
 import { useStates } from '../../States';
 import { useEffect } from 'react';
 import { motion } from "framer-motion";
@@ -7,6 +7,7 @@ function Home() {
 
     useEffect(() => {
         getAllProducts();
+        // eslint-disable-next-line
     },[]);
   
     return (

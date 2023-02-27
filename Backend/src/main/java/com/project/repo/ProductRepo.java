@@ -6,5 +6,7 @@ import com.project.model.ProductModel;
 
 public interface ProductRepo extends JpaRepository<ProductModel, Integer>
 {
+
+	boolean existsByProductNameIgnoreCase(String productName);
 	
 }

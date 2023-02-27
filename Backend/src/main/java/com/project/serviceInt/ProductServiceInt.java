@@ -34,6 +34,11 @@ public class ProductServiceInt implements ProductService{
 	public void updateProduct(ProductModel productModel) {
 		productRepo.save(productModel);
 	}
+
+	@Override
+	public boolean isProductExist(String productName) {
+		return productRepo.existsByProductNameIgnoreCase(productName);
+	}
 	
 	
 }

@@ -8,7 +8,7 @@ import axios from "./axios";
 const Context = createContext();
 export const States = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [product,setProduct] = useState([]);
+    
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -19,6 +19,13 @@ export const States = ({ children }) => {
     const [mailerror2, setmailerror2] = useState("");
     const [cpwerror, setcpwerror] = useState("");
     const [unerror, setunerror] = useState("");
+
+    const [product,setProduct] = useState([]);
+
+    const [prodname,setProdname] = useState("");
+    const [prodrate,setProdrate] = useState("");
+    const [produrl,setProdurl] = useState("");
+    const [prodcategory,setProdcategory] = useState("default");
 
     var navigate = useNavigate();
 
@@ -43,10 +50,6 @@ export const States = ({ children }) => {
         }
     };
 
-
-    function refreshPage() {
-      window.location.reload(false);
-    }
 
      const getAllProducts = () => {
       fetch('http://localhost:1403/product/getall')
@@ -82,9 +85,9 @@ export const States = ({ children }) => {
       .then((willDelete) => 
       {
         if(willDelete){
-          axios.delete('/product/delete', { params: { productId:id } }).then((response)=>{
+          axios.delete('/product/delete',  { params: { productId:id } }).then((response)=>{
             console.log(response);
-            refreshPage();
+            getAllProducts()
           });
         }
       });
@@ -103,6 +106,25 @@ export const States = ({ children }) => {
     axios.post('/signup/create', userDetails).then((response)=>{
       console.log(response);
     });
+  };
+
+
+
+    const SendtoprodDB = () => {
+    const prodDetails = {
+      productName:prodname,
+      productRate:prodrate,
+      productUrl:produrl,
+      productCategory:prodcategory
+    };
+    axios.post('/product/add', prodDetails).then((response)=>{
+      console.log(response);
+      if(response.data==="Product exists already")
+      {
+        swal("This Products exists already")
+      }
+    });
+    navigate("/admin/home");
   };
 
 
@@ -132,7 +154,7 @@ export const States = ({ children }) => {
     }
     console.log(user);
     SendtoDB2(user.displayName,user.email,user.uid,"google");
-    navigate("/home");
+    navigate("/home")
   };
 
 
@@ -223,7 +245,12 @@ export const States = ({ children }) => {
             product,
             setProduct,
             getAllProducts,
-            deletefromDB
+            deletefromDB,
+            setProdname,
+            setProdrate,
+            setProdurl,
+            SendtoprodDB,
+            setProdcategory
         }}
         >{children}
         </Context.Provider>

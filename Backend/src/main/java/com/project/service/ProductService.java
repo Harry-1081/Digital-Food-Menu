@@ -12,5 +12,7 @@ public interface ProductService{
 	public abstract void updateProduct(ProductModel productModel);
 
 	public abstract void deleteProduct(Integer productId);
+
+	public abstract boolean isProductExist(String productName);
 	
 }
