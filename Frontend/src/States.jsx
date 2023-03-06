@@ -5,6 +5,7 @@ import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import axios from "./axios";
 
+
 const Context = createContext();
 export const States = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -21,7 +22,9 @@ export const States = ({ children }) => {
     const [unerror, setunerror] = useState("");
 
     const [product,setProduct] = useState([]);
+    const [editproduct,seteditProduct] = useState();
     const [ addprod,setaddprod ] = useState(false);
+    const [ editprod,seteditprod ] = useState(false);
 
     const [prodname,setProdname] = useState("");
     const [prodrate,setProdrate] = useState("");
@@ -29,6 +32,7 @@ export const States = ({ children }) => {
     const [prodcategory,setProdcategory] = useState("default");
 
     var navigate = useNavigate();
+
 
     const passMatch = (e) => {
         setcpwerror("");
@@ -94,15 +98,12 @@ export const States = ({ children }) => {
       });
     };
 
-
-
     const SendtoDB = (uid,type) => {
     const userDetails = {
       uid : uid,
       signupUsername: username,
       signupMail: email,
       signupPassword: password,
-      signupType: type,
     };
     axios.post('/signup/create', userDetails).then((response)=>{
       console.log(response);
@@ -111,7 +112,7 @@ export const States = ({ children }) => {
 
 
 
-    const SendtoprodDB = () => {
+    const SendtoprodDB = (e) => { 
     const prodDetails = {
       productName:prodname,
       productRate:prodrate,
@@ -122,12 +123,15 @@ export const States = ({ children }) => {
       console.log(response);
       if(response.data==="Product exists already")
       {
+        e.preventDefault();
         swal("This Products exists already")
       }
+      else
+      {
+      getAllProducts();
+      }
     });
-    // navigate("/admin/home");
   };
-
 
     const SendtoDB2 = (username,email,uid,type) => {
     const userDetails = {
@@ -253,7 +257,11 @@ export const States = ({ children }) => {
             SendtoprodDB,
             setProdcategory,
             addprod,
-            setaddprod
+            setaddprod,
+            seteditprod,
+            editprod,
+            editproduct,
+            seteditProduct
         }}
         >{children}
         </Context.Provider>

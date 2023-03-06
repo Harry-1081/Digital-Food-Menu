@@ -1,6 +1,7 @@
 package com.project.serviceInt;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,18 @@ public class ProductServiceInt implements ProductService{
 	@Override
 	public boolean isProductExist(String productName) {
 		return productRepo.existsByProductNameIgnoreCase(productName);
+	}
+
+	@Override
+	public boolean isProductExistbyid(int productId) {
+		return productRepo.existsById(productId);
+	}
+
+	@Override
+	public ProductModel getProductbyid(int productId) {
+		Optional<ProductModel> optional = productRepo.findById(productId);
+		ProductModel productModel = optional.get();
+		return productModel;
 	}
 	
 	

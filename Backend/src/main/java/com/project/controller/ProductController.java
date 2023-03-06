@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,21 @@ public class ProductController{
 		List<ProductModel> productList = productService.getProducts();
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
+
+	@GetMapping(value="/getbyid/{productId}")
+	private ResponseEntity<Object> getProductbyid(@PathVariable int productId) 
+	{
+		boolean isProductExistbyid = productService.isProductExistbyid(productId);
+		if (isProductExistbyid)
+		{
+		ProductModel productModel = productService.getProductbyid(productId);
+		return new ResponseEntity<>(productModel, HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<>("ID not found",HttpStatus.OK);
+		}
+	}
 	
 	
 	@PostMapping(value="/add")
@@ -55,9 +71,8 @@ public class ProductController{
 	}
 	
 	
-	@PutMapping(value="/edit")
-	public ResponseEntity<Object> updateProduct(@RequestParam int productId,
-			@RequestBody ProductModel productModel)
+	@PutMapping(value="/edit/{productId}")
+	public ResponseEntity<Object> updateProduct(@PathVariable int productId, @RequestBody ProductModel productModel)
 	{
 			productModel.setProductId(productId);
 			productService.updateProduct(productModel);

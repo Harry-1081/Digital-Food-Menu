@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+.edit-page{
+    width: 100vw;
+    height: 100vh;
+    z-index: 20 ;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 1s ease-in-out;
+    left: 0;
+}
+.edit-box{
+    top: 16%;
+    left: 33%;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    background-color: rgba(240, 243, 246);
+    border-radius: 1.5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.edit-text{
+    position: absolute;
+    top: 6%;
+    left: 30%;
+    font-size: 30px;
+    color: rgb(57, 55, 55);
+    font-family: 'Quicksand', sans-serif;
+}
+.canceleditprod-btn
+{
+    position: absolute;
+    top: 7%;
+    left: 68%;
+    padding-top: 5px;
+    font-size: 20px;
+    border: 0.5px black solid;
+    background-color: rgba(245, 245, 220, 0.001)
+}
+.canceleditprod-btn:hover{
+    border: none;
+    color: aliceblue;
+    background-color: rgb(255, 0, 0);
+}
+.editprodname-in, .editprodrate-in, 
+.editprodcategory-in, .editprodurl-in {
+    width: 385px;
+}
+.editprodname-div{
+    position: absolute;
+    top: 20%;
+    left: 8.5%;
+    padding: 10px;
+    color: black;
+}
+.editprodrate-div{
+    position: absolute;
+    top: 34%;
+    left: 8.5%;
+    padding: 10px;
+}
+.editprodurl-div{
+    position: absolute;
+    top: 48%;
+    left: 8.5%;
+    padding: 10px;
+}
+.editprodcategory-div{
+    position: absolute;
+    top: 62%;
+    left: 8.5%;
+    padding: 10px;
+
+}
+.editprod-btn{
+    position: absolute;
+    top: 80%;
+    left: 9.5%;
+    width: 396px;
+    height: 46px;
+    color: aliceblue;
+    font-size: 17px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: rgb(53, 52, 52);
+}
+.editprod-btn:hover{
+    background-image: linear-gradient(to right, rgb(120, 190, 252) , rgb(212, 0, 255));;
+}

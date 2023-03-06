@@ -14,5 +14,9 @@ public interface ProductService{
 	public abstract void deleteProduct(Integer productId);
 
 	public abstract boolean isProductExist(String productName);
+
+	public abstract boolean isProductExistbyid(int productId);
+
+    public abstract ProductModel getProductbyid(int productId);
 	
 }

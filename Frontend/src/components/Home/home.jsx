@@ -22,7 +22,7 @@ function Home() {
                     src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBqvw9fFq2uIc9H7kVCAz964W5Lw9CvK7BrQ&usqp=CAU'></img> */}
                     <img className='product-img' src={product.productUrl} alt=""></img>
                     <span className='product-name'><b>{product.productName}</b></span>
-                    <span className='product-rate'><b>{product.productRate}.00 </b></span>
+                    <span className='product-rate'><b>{product.productRate} ml </b></span>
                     <button className='product-category'>{product.productCategory}</button>
                 </motion.div>
                 </>
