@@ -23,7 +23,7 @@ function Home() {
                     <img className='product-img' src={product.productUrl} alt=""></img>
                     <span className='product-name'><b>{product.productName}</b></span>
                     <span className='product-rate'><b>{product.productRate} ml </b></span>
-                    <button className='product-category'>{product.productCategory}</button>
+                    <button className='product-shop'>{product.productShop}</button>
                 </motion.div>
                 </>
             )

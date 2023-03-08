@@ -5,7 +5,6 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     z-index: -10;
-    margin-top: 50px;
 }
 .product-div{
     display: flex;
@@ -13,31 +12,32 @@
     justify-content: center;
     align-items: center;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 44px 45px, rgba(0, 0, 0, 0.12) 0px -12px 30px, 
     rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    width: 225px;
-    height: 270px;
+    width: 235px;
+    height: 290px;
     border-radius: 7.5px;
+    border: 1px solid rgba(0, 0, 0, 0.3);box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.5) 0px 0px 0px 1px;
     position: relative;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 .admin-div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
-     rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.3);box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.5) 0px 0px 0px 1px;
     width: 250px;
     height: 300px;
     border-radius: 7.5px;
     position: relative;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 .edit-btn{
     cursor: pointer;
@@ -66,7 +66,7 @@
     transform: scale(1.2);
 }
 .product-div:hover{
-    transform: scale(1.01);
+    transform: scale(1.03);
 }
 .product-img{
     height: 150px;
@@ -77,20 +77,31 @@
 .product-name{
     margin-top: 13px;
     font-size: 25px;
+    padding-bottom: 2px;
     font-family: 'Source Serif Pro', serif;
 }
 .product-rate{
     font-size: 15px;
     display: flex;
+    padding-bottom: 6px;
     font-family: 'Source Serif Pro', serif;
 }
+.product-shop{
+    background-color: blueviolet;
+    color: aliceblue;
+    border: none;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    letter-spacing: 0.75px;
+}
 .addpage-link{
-    font-size: 25px;
+    font-size: 35px;
+    color: aliceblue;
+}
+.addpage-linkbtn{
     position: absolute;
-    background-color: rgb(111, 119, 116, 0.5);
-    padding: 3px;
-    padding-left: 15px;
-    padding-right: 15px;
-    top: 4%;
-    left: 40%;
+    background-color: black;
+    top: 0.8%;
+    left: 96%;
 }

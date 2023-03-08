@@ -1,11 +1,11 @@
 import './AddProduct.css'
 import { TextField } from '@mui/material'
-import { useStates } from '../../States';
+import { useStates } from '../States';
 import { RiDeleteBinLine } from 'react-icons/ri'
 
 const AddProduct = ({ show }) => {
 
-  const { setProdname, setProdrate, setProdurl, SendtoprodDB, setProdcategory } = useStates();
+  const { setProdname, setProdrate, setProdurl, SendtoprodDB, setProdshop } = useStates();
   return (
     <>
       <div className='add-page'>
@@ -38,9 +38,9 @@ const AddProduct = ({ show }) => {
                 onChange={(e) => setProdurl(e.target.value)} />
             </div>
 
-            <div className='prodcategory-div'>
-              <TextField className='prodcategory-in' label="Product Category" variant="standard" required
-                onChange={(e) => setProdcategory(e.target.value)} />
+            <div className='prodshop-div'>
+              <TextField className='prodshop-in' label="Shop Available" variant="standard" required
+                onChange={(e) => setProdshop(e.target.value)} />
             </div>
 
             <div className='addprod-div'>

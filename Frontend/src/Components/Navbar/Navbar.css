@@ -1,0 +1,30 @@
+.navbar-page{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 100vw;
+}
+.navbar-div ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline-start: -20px;
+}
+.nav-logo{
+    height: 22.5px;
+    display: flex;
+    /* align-items: center; */
+    padding-right: 40px;
+    justify-content: space-between;
+}
+.nav-searchbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:5px;
+    height: 27px;
+    width: 500px;
+    border-radius: 5px;
+}

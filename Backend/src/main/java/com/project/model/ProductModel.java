@@ -13,7 +13,7 @@ public class ProductModel{
 	private String productName;
 	private String productUrl;
 	private float productRate;
-	private String productCategory;
+	private String productShop;
 	private String availability;
 	
 	public String isAvailability() {
@@ -46,17 +46,17 @@ public class ProductModel{
 	public void setProductRate(float productRate) {
 		this.productRate = productRate;
 	}
-	public String getProductCategory() {
-		return productCategory;
+	public String getProductShop() {
+		return productShop;
 	}
-	public void setProductCategory(String productCategory) {
-		this.productCategory = productCategory;
+	public void setProductCategory(String productShop) {
+		this.productShop = productShop;
 	}
 	
 	@Override
 	public String toString() {
 		return "ProductModel [ProductId=" + productId + ", productName=" + productName + ", productUrl=" + productUrl
-				+ ", productRate=" + productRate + ", productCategory=" + productCategory + "]";
+				+ ", productRate=" + productRate + ", productShop=" + productShop + "]";
 	}
 	
 }

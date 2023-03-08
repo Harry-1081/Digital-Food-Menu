@@ -1,10 +1,11 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { States } from './States';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
-import Home from './components/Home/Home';
-import AdminHome from './components/Admin/AdminHome';
+import Login from './Pages/Login/Login';
+import Signup from './Pages/Signup/Signup';
+import Home from './Pages/Home/Home';
+import AdminHome from './Admin/AdminHome';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
@@ -15,12 +16,24 @@ function App() {
 
             <Route
               path='/home'
-              element={<Home />}
+              element=
+              {
+                <>
+                  <Navbar />
+                  <Home />
+                </>
+              }
             />
 
             <Route
               path='/admin/home'
-              element={<AdminHome/>}
+              element=
+              {
+                <>
+                  <Navbar />
+                  <AdminHome />
+                </>
+              }
             />
             
             <Route

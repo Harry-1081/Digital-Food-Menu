@@ -1,8 +1,8 @@
 import './EditProduct.css'
 import { TextField } from '@mui/material'
-import { useStates } from '../../States';
+import { useStates } from '../States';
 import { RiDeleteBinLine } from 'react-icons/ri'
-import axios from '../../axios';
+import axios from '../axios';
 import { useEffect, useState } from 'react';
 
 const EditProduct = ({ show }) => {
@@ -12,14 +12,14 @@ const EditProduct = ({ show }) => {
     const [prodname, setProdname] = useState("");
     const [prodrate, setProdrate] = useState("");
     const [produrl, setProdurl] = useState("");
-    const [prodcategory, setProdcategory] = useState("");
+    const [prodshop, setProdshop] = useState("");
 
     useEffect(() => {
       setProdid(editproduct?.productId)
       setProdname(editproduct?.productName)
       setProdrate(editproduct?.productRate)
       setProdurl(editproduct?.productUrl)
-      setProdcategory(editproduct?.productCategory)
+      setProdshop(editproduct?.productShop)
     }, [editproduct]);
 
     const editfromDB = () => {
@@ -27,7 +27,7 @@ const EditProduct = ({ show }) => {
         productName:prodname,
         productRate:prodrate,
         productUrl:produrl,
-        productCategory:prodcategory
+        productShop:prodshop
       }
       axios.put(`/product/edit/${prodid}`,prodeditDetails)
       .then((response)=>{
@@ -68,9 +68,9 @@ const EditProduct = ({ show }) => {
               onChange={(e) => setProdurl(e.target.value)}/>
             </div>
 
-            <div className='editprodcategory-div'>
-            <TextField className='editprodcategory-in' label="Product Category" variant="standard" value={prodcategory}
-              onChange={(e) => setProdcategory(e.target.value)}/>
+            <div className='editprodshop-div'>
+            <TextField className='editprodshop-in' label="Shop Available" variant="standard" value={prodshop}
+              onChange={(e) => setProdshop(e.target.value)}/>
             </div>
 
             <div className='editprod-div'>

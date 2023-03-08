@@ -1,5 +1,5 @@
-import '../Home/Home.css';
-import { useStates } from '../../States';
+import '../Pages/Home/Home.css';
+import { useStates } from '../States';
 import { useEffect } from 'react';
 import { motion } from "framer-motion";
 import { MdAddBox,MdEdit } from "react-icons/md"
@@ -27,8 +27,8 @@ function AdminHome() {
     return (
         <>
          <motion.div className="product-page">
-            <button className='addpage-link' onClick={() => setaddprod(true)}>
-              <MdAddBox/> Add New Products
+            <button  className='addpage-linkbtn' onClick={() => setaddprod(true)}>
+              <span className='addpage-link'><MdAddBox/></span>
              {addprod && <AddProduct show={setaddprod}/>}
             </button>
              {editprod && <EditProduct show={seteditprod}/>}
@@ -48,7 +48,7 @@ function AdminHome() {
                     <img className='product-img' src={product.productUrl} alt=""></img>
                     <span className='product-name'><b>{product.productName}</b></span>
                     <span className='product-rate'><b>{product.productRate}.00 </b></span>
-                    <button className='product-category'>{product.productCategory}</button>
+                    <button className='product-shop'>{product.productShop}</button>
                 </motion.div>
                 </>
             )

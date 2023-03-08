@@ -25,11 +25,13 @@ export const States = ({ children }) => {
     const [editproduct,seteditProduct] = useState();
     const [ addprod,setaddprod ] = useState(false);
     const [ editprod,seteditprod ] = useState(false);
+    
+    const [ searchvalue,setSearchvalue ] = useState("");
 
     const [prodname,setProdname] = useState("");
     const [prodrate,setProdrate] = useState("");
     const [produrl,setProdurl] = useState("");
-    const [prodcategory,setProdcategory] = useState("default");
+    const [prodshop,setProdshop] = useState("default");
 
     var navigate = useNavigate();
 
@@ -117,7 +119,7 @@ export const States = ({ children }) => {
       productName:prodname,
       productRate:prodrate,
       productUrl:produrl,
-      productCategory:prodcategory
+      productShop:prodshop
     };
     axios.post('/product/add', prodDetails).then((response)=>{
       console.log(response);
@@ -255,13 +257,14 @@ export const States = ({ children }) => {
             setProdrate,
             setProdurl,
             SendtoprodDB,
-            setProdcategory,
+            setProdshop,
             addprod,
             setaddprod,
             seteditprod,
             editprod,
             editproduct,
-            seteditProduct
+            seteditProduct,
+            setSearchvalue
         }}
         >{children}
         </Context.Provider>
