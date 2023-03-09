@@ -20,12 +20,6 @@
     border-radius: 12.5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.login-box input{
-    width: 370px;
-    border-radius: 7px;
-    height: 25px;
-    border: 1px solid rgb(123, 7, 131);
-}
 .login-text{
     position: absolute;
     top: 5%;
@@ -34,35 +28,24 @@
     color: rgb(57, 55, 55);
     font-family: 'Roboto Mono', monospace;
 }
-.mail-text{
+.mail-in, .pw-in{
+    width: 385px;
+}
+.mail-div{
     position: absolute;
     top: 22%;
-    left: 10%;
-    font-size: 16px;
-    letter-spacing: 2px;
-}
-.mail-in{
-    position: absolute;
-    top: 27.5%;
-    left: 10%;
+    left: 8.5%;
     padding: 10px;
 }
-.pw-text{
+.pw-div{
     position: absolute;
-    top: 42%;
-    left: 10%;
-    font-size: 16px;
-    letter-spacing: 2px;
-}
-.pw-in{
-    position: absolute;
-    top: 47.5%;
-    left: 10%;
+    top: 38%;
+    left: 8.5%;
     padding: 10px;
 }
 .login-btn{
     position: absolute;
-    top: 62%;
+    top: 59%;
     left: 10%;
     width: 395px;
     height: 45px;
@@ -91,13 +74,13 @@
 }
 .signuplink-txt1{
     position: absolute;
-    top: 74%;
+    top: 73%;
     left: 28%;
     font-size: 16px;
 }
 .signuplink-txt2{
     position: absolute;
-    top: 74%;
+    top: 73%;
     left: 52%;
     font-size: 16px;
 }

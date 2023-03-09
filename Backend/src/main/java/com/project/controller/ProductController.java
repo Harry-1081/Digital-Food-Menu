@@ -23,7 +23,6 @@ import com.project.service.ProductService;
 @RequestMapping(value="/product")
 @CrossOrigin("*")
 public class ProductController{
-	
 	@Autowired
 	private ProductService productService;
 	
@@ -49,6 +48,12 @@ public class ProductController{
 		}
 	}
 	
+	@GetMapping(value="/getbyname/{productName}")
+	private ResponseEntity<Object> getProductbyname(@PathVariable String productName) 
+	{
+		List<ProductModel> productModel = productService.getProductbyname(productName);
+		return new ResponseEntity<>(productModel, HttpStatus.OK);
+	}
 	
 	@PostMapping(value="/add")
 	public String createProduct(@RequestBody ProductModel productModel)

@@ -15,11 +15,6 @@ export const States = ({ children }) => {
     const [password, setPassword] = useState("");
     const [confirmpw, setConfirmpw] = useState("");
     const [pwerror, setPwerror] = useState("");
-    const [mailerror, setmailerror] = useState("");
-    const [pwerror2, setPwerror2] = useState("");
-    const [mailerror2, setmailerror2] = useState("");
-    const [cpwerror, setcpwerror] = useState("");
-    const [unerror, setunerror] = useState("");
 
     const [product,setProduct] = useState([]);
     const [editproduct,seteditProduct] = useState();
@@ -37,19 +32,9 @@ export const States = ({ children }) => {
 
 
     const passMatch = (e) => {
-        setcpwerror("");
+        e.preventDefault()
         setPwerror("");
-        setmailerror("");
-        setunerror("");
-        if(username===""){
-            setunerror("*Username required")}
-        if(email===""){
-            setmailerror("*Email required")}
-        if(password===""){
-            setPwerror("*Password required")}
-        if(confirmpw===""){
-            setcpwerror("*Confirm Password required")}
-        else if(!(password===confirmpw)){
+        if(!(password===confirmpw)){
             setPwerror("[Your passwords do not match]")}
         else if(password===confirmpw)
         {
@@ -59,25 +44,34 @@ export const States = ({ children }) => {
 
 
      const getAllProducts = () => {
+      if(searchvalue==="")
+      {
       fetch('http://localhost:1403/product/getall')
         .then((res) => res.json())
         .then((result) => {
         setProduct(result);
           console.log(result);
         });
+      }
+      else
+      {
+        fetch(`http://localhost:1403/product/getbyname/${searchvalue}`)
+        .then((res) => res.json())
+        .then((result) => {
+        setProduct(result);
+          console.log(result);
+          if(result.length==='0')
+          {
+            
+          }
+        });
+      }
        };
 
 
     const logincheck = (e) => {
-      setPwerror2("");
-      setmailerror2("");
-      if(email===""){
-        setmailerror2("*Email required")}
-      if(password===""){
-        setPwerror2("*Password required")}
-      else{
+      e.preventDefault()
         signIn()
-      }
     };
 
 
@@ -99,6 +93,7 @@ export const States = ({ children }) => {
         }
       });
     };
+
 
     const SendtoDB = (uid,type) => {
     const userDetails = {
@@ -153,6 +148,7 @@ export const States = ({ children }) => {
 
   const googleLogin = async () => 
   {
+    setPassword("")
     try {
       await auth.signInWithPopup(provider);
       setUser(await auth.currentUser);
@@ -196,8 +192,6 @@ export const States = ({ children }) => {
               }
             });
           }
-          else if(error.code === "auth/invalid-email")
-          alert("The Email is invalid ! Please enter a valid Email ID")
           console.log(error);
         });
     };
@@ -214,6 +208,8 @@ export const States = ({ children }) => {
         .catch((error) => {
           if(error.code === "auth/email-already-in-use")
           alert("The email address is already in use by another account")
+          else if(error.code==="auth/weak-password")
+          swal("Weak Password Detected","Password must be atleast 6 characters")
           else if(error.code === "auth/invalid-email")
           alert("The Email is invalid ! Please enter a valid Email ID")
           console.log(error);
@@ -234,19 +230,9 @@ export const States = ({ children }) => {
             passMatch,
             pwerror,
             setPwerror,
-            unerror,
-            setunerror,
-            mailerror,
-            setmailerror,
             username,
             setUsername,
-            cpwerror,
-            setcpwerror,
             logincheck,
-            pwerror2,
-            setPwerror2,
-            mailerror2,
-            setmailerror2,
             SendtoDB,
             googleLogin,
             product,
@@ -264,7 +250,8 @@ export const States = ({ children }) => {
             editprod,
             editproduct,
             seteditProduct,
-            setSearchvalue
+            setSearchvalue,
+            searchvalue
         }}
         >{children}
         </Context.Provider>

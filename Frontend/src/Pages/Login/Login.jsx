@@ -2,11 +2,12 @@ import './Login.css';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useStates } from '../../States';
+import { TextField } from '@mui/material';
 
 function Login() {
 
   // UseStates
-  const { setEmail, setPassword, logincheck, mailerror2, pwerror2,googleLogin } = useStates();
+  const { setEmail, setPassword, logincheck, googleLogin } = useStates();
   return (
     <>
       <div className='login-page'>
@@ -16,23 +17,21 @@ function Login() {
             <span className='login-text'><b>Sign in with</b></span>
           </div>
 
+          <form onSubmit={logincheck}>
           <div className='mail-div'>
-            <span className='mail-text'>Email</span>
-            <input className='mail-in' type='mail' placeholder='Email'
-              onChange={(e) => setEmail(e.target.value)}></input>
-              {mailerror2 && <span className='mailerror1-text'><b>{mailerror2}</b></span>}
+          <TextField  className='mail-in' type='email' label="Email" variant="standard" required
+              onChange={(e) => setEmail(e.target.value)}/>
           </div>
 
           <div className='pw-div'>
-            <span className='pw-text'>Password</span>
-            <input className='pw-in' type='password' placeholder='Password'
-              onChange={(e) => setPassword(e.target.value)}></input>
-              {pwerror2 && <span className='pwerror1-text'><b>{pwerror2}</b></span>}
+          <TextField className='pw-in' type='password' label="Password" variant="standard" required
+              onChange={(e) => setPassword(e.target.value)}/>
           </div>
 
           <div className='loginbtn-div'>
-            <button className='login-btn' onClick={logincheck}>Sign In</button>
+            <button className='login-btn'>Sign In</button>
           </div>
+          </form>
 
           <div className='google-div'>
             <button onClick={googleLogin} className='google-btn'><FaGoogle /> - Sign-in with Google</button>

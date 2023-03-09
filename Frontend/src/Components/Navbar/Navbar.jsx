@@ -1,8 +1,15 @@
 import './Navbar.css';
 import { useStates } from "../../States";
+import { useEffect } from 'react';
 
 function Navbar() {
-    const { setSearchvalue } = useStates();
+    const { setSearchvalue,getAllProducts,searchvalue } = useStates();
+    
+    useEffect(() => {
+        getAllProducts();
+        // eslint-disable-next-line
+    },[searchvalue]);
+    
     return (
         <>
             <div className='navbar-page'>
@@ -15,7 +22,8 @@ function Navbar() {
 
                         <li>
                         <input className='nav-searchbar' type='text' placeholder=' 🔍 Search items'
-                        onChange={(e) => setSearchvalue(e.target.value)} ></input>
+                        onChange={(e) => setSearchvalue(e.target.value)}
+                        ></input>
                         </li>
 
                     </ul>

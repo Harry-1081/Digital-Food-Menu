@@ -53,5 +53,9 @@ public class ProductServiceInt implements ProductService{
 		return productModel;
 	}
 	
-	
+	@Override
+	public List<ProductModel> getProductbyname(String productName) 
+	{
+		return (List<ProductModel>) productRepo.findByProductNameContainingIgnoreCase(productName);
+	}
 }

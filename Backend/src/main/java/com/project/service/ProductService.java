@@ -1,6 +1,7 @@
 package com.project.service;
 
 import java.util.List;
+
 import com.project.model.ProductModel;
 
 public interface ProductService{
@@ -18,5 +19,7 @@ public interface ProductService{
 	public abstract boolean isProductExistbyid(int productId);
 
     public abstract ProductModel getProductbyid(int productId);
+
+    public abstract List<ProductModel> getProductbyname(String productName);
 	
 }
