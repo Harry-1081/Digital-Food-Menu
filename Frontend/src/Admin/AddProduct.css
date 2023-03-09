@@ -87,3 +87,6 @@
 .addprod-btn:hover{
     background-image: linear-gradient(to right, rgb(120, 190, 252) , rgb(212, 0, 255));;
 }
+.dis-value{
+    background-color: black;
+}

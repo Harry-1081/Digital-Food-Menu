@@ -1,5 +1,5 @@
 import './EditProduct.css'
-import { TextField } from '@mui/material'
+import { TextField,FormControl,InputLabel,Select,MenuItem } from '@mui/material'
 import { useStates } from '../States';
 import { RiDeleteBinLine } from 'react-icons/ri'
 import axios from '../axios';
@@ -69,8 +69,21 @@ const EditProduct = ({ show }) => {
             </div>
 
             <div className='editprodshop-div'>
-            <TextField className='editprodshop-in' label="Shop Available" variant="standard" value={prodshop}
-              onChange={(e) => setProdshop(e.target.value)}/>
+            <FormControl variant='standard' fullWidth required>
+              <InputLabel>Shop Name</InputLabel>
+              <Select
+                className='editprodshop-in'
+                label="Age"
+                value={prodshop}
+                onChange={(e) => setProdshop(e.target.value)}
+              >
+                <MenuItem value={"Aroma"}>Aroma</MenuItem>
+                <MenuItem value={"Broken Eggs"}>Broken Eggs</MenuItem>
+                <MenuItem value={"SPN Chats"}>SPN Chats</MenuItem>
+                <MenuItem value={"Thatha Kadai"}>Thatha Kadai</MenuItem>
+                <MenuItem value={"Cravy's House"}>Cravy's House</MenuItem>
+              </Select>
+            </FormControl>
             </div>
 
             <div className='editprod-div'>

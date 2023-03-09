@@ -1,5 +1,5 @@
 import './AddProduct.css'
-import { TextField } from '@mui/material'
+import { TextField,FormControl,InputLabel,Select,MenuItem } from '@mui/material'
 import { useStates } from '../States';
 import { RiDeleteBinLine } from 'react-icons/ri'
 
@@ -39,8 +39,24 @@ const AddProduct = ({ show }) => {
             </div>
 
             <div className='prodshop-div'>
-              <TextField className='prodshop-in' label="Shop Available" variant="standard" required
-                onChange={(e) => setProdshop(e.target.value)} />
+
+            <FormControl variant='standard' fullWidth required>
+              <InputLabel>Shop Name</InputLabel>
+              <Select
+                className='prodshop-in'
+                label="Age"
+                onChange={(e) => setProdshop(e.target.value)}
+              >
+                <MenuItem value={"Aroma"}>Aroma</MenuItem>
+                <MenuItem value={"Broken Eggs"}>Broken Eggs</MenuItem>
+                <MenuItem value={"SPN Chats"}>SPN Chats</MenuItem>
+                <MenuItem filled disabled value={""}>Fresh Juice</MenuItem>
+                <MenuItem value={"Thatha Kadai"}>Thatha Kadai</MenuItem>
+                <MenuItem value={"Cravy's House"}>Cravy's House</MenuItem>
+              </Select>
+            </FormControl>
+
+
             </div>
 
             <div className='addprod-div'>
