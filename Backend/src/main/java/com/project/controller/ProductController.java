@@ -26,10 +26,10 @@ public class ProductController{
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping(value="/getall")
-	private ResponseEntity<Object> getProducts() 
+	@GetMapping(value="/{sort}/{pageno}")
+	private ResponseEntity<Object> getProducts(@PathVariable String sort,@PathVariable int pageno) 
 	{
-		List<ProductModel> productList = productService.getProducts();
+		List<ProductModel> productList = productService.getProducts(sort,pageno);
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
 
@@ -71,8 +71,7 @@ public class ProductController{
 	public ResponseEntity<Object> deleteProduct(@RequestParam int productId)
 	{
 			productService.deleteProduct(productId);
-			return new ResponseEntity<>("R.I.P."
-					+ "\nCause of Death : ProductPageModel Deletion", HttpStatus.OK);
+			return new ResponseEntity<>("Did you just... delete the product ?", HttpStatus.OK);
 	}
 	
 	
@@ -81,7 +80,7 @@ public class ProductController{
 	{
 			productModel.setProductId(productId);
 			productService.updateProduct(productModel);
-			return new ResponseEntity<>("ProductPageModel details are updated successsfully !", HttpStatus.OK);
+			return new ResponseEntity<>("Product details are updated successsfully !", HttpStatus.OK);
 	}
 		
 	

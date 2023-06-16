@@ -6,6 +6,7 @@ import Signup from './Pages/Signup/Signup';
 import Home from './Pages/Home/Home';
 import AdminHome from './Admin/AdminHome';
 import Navbar from './Components/Navbar/Navbar';
+import Pageno from './Components/Pagination/Pageno';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <>
                   <Navbar />
                   <Home />
+                  <Pageno />
                 </>
               }
             />
@@ -32,6 +34,7 @@ function App() {
                 <>
                   <Navbar />
                   <AdminHome />
+                  <Pageno />
                 </>
               }
             />

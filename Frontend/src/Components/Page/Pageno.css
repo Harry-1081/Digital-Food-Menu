@@ -1,0 +1,23 @@
+.pagination-page{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    width: 100%;
+    background-color: rgb(233, 233, 233);
+}
+.pagination-div{
+    position: absolute;
+    left: 47%;
+}
+.page-prev,.page-next{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.page-num{
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 21px;
+}

@@ -22,6 +22,8 @@ export const States = ({ children }) => {
     const [ editprod,seteditprod ] = useState(false);
     
     const [ searchvalue,setSearchvalue ] = useState("");
+    const [ pageno,setpageno ] = useState(0);
+    const [sortvalue,setSortvalue]= useState("all");
 
     const [prodname,setProdname] = useState("");
     const [prodrate,setProdrate] = useState("");
@@ -29,7 +31,6 @@ export const States = ({ children }) => {
     const [prodshop,setProdshop] = useState("default");
 
     var navigate = useNavigate();
-
 
     const passMatch = (e) => {
         e.preventDefault()
@@ -46,11 +47,10 @@ export const States = ({ children }) => {
      const getAllProducts = () => {
       if(searchvalue==="")
       {
-      fetch('http://localhost:1403/product/getall')
+      fetch(`http://localhost:1403/product/${sortvalue}/${pageno}`)
         .then((res) => res.json())
         .then((result) => {
-        setProduct(result);
-          console.log(result);
+          setProduct(result);
         });
       }
       else
@@ -58,15 +58,11 @@ export const States = ({ children }) => {
         fetch(`http://localhost:1403/product/getbyname/${searchvalue}`)
         .then((res) => res.json())
         .then((result) => {
-        setProduct(result);
+          setProduct(result);
           console.log(result);
-          if(result.length==='0')
-          {
-            
-          }
         });
       }
-       };
+      };
 
 
     const logincheck = (e) => {
@@ -86,7 +82,8 @@ export const States = ({ children }) => {
       .then((willDelete) => 
       {
         if(willDelete){
-          axios.delete('/product/delete',  { params: { productId:id } }).then((response)=>{
+          axios.delete('/product/delete',  { params: { productId:id } }
+          ).then((response)=>{
             console.log(response);
             getAllProducts()
           });
@@ -196,6 +193,17 @@ export const States = ({ children }) => {
         });
     };
 
+    const prevpage=()=>{
+      if(searchvalue===""&&(pageno>0))
+      setpageno(0);
+  }
+
+  const nextpage=()=>{
+      if(searchvalue===""){
+        // if(product.getSize()!==10)
+          setpageno(1);
+      }
+  }
 
   const signUp = (e) => {
       createUserWithEmailAndPassword(auth, email, password)
@@ -241,6 +249,7 @@ export const States = ({ children }) => {
             deletefromDB,
             setProdname,
             setProdrate,
+            sortvalue,setSortvalue,
             setProdurl,
             SendtoprodDB,
             setProdshop,
@@ -248,10 +257,11 @@ export const States = ({ children }) => {
             setaddprod,
             seteditprod,
             editprod,
+            prevpage, nextpage,
             editproduct,
             seteditProduct,
             setSearchvalue,
-            searchvalue
+            pageno,setpageno,
         }}
         >{children}
         </Context.Provider>

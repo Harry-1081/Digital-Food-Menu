@@ -6,7 +6,7 @@ import com.project.model.ProductModel;
 
 public interface ProductService{
 
-	public abstract List<ProductModel> getProducts();
+	public abstract List<ProductModel> getProducts(String sort, int count);
 
 	public abstract ProductModel createProduct(ProductModel productModel);
 

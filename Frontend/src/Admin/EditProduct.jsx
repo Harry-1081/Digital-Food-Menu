@@ -21,7 +21,7 @@ const EditProduct = ({ show }) => {
       setProdurl(editproduct?.productUrl)
       setProdshop(editproduct?.productShop)
     }, [editproduct]);
-
+    
     const editfromDB = () => {
       const prodeditDetails = {
         productName:prodname,

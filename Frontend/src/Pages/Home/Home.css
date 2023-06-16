@@ -5,9 +5,12 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     z-index: -10;
+    min-height: 88vh;
+    background-color: rgb(233, 233, 233);
 }
 .product-div{
     display: flex;
+    background-color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -25,6 +28,7 @@
     margin-bottom: 50px;
 }
 .admin-div{
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,6 +106,7 @@
 .addpage-linkbtn{
     position: absolute;
     background-color: black;
-    top: 0.8%;
+    border: none;
+    top: 1.2%;
     left: 96%;
 }

@@ -45,8 +45,7 @@ const AddProduct = ({ show }) => {
               <Select
                 className='prodshop-in'
                 label="Age"
-                onChange={(e) => setProdshop(e.target.value)}
-              >
+                onChange={(e) => setProdshop(e.target.value)}>
                 <MenuItem value={"Aroma"}>Aroma</MenuItem>
                 <MenuItem value={"Broken Eggs"}>Broken Eggs</MenuItem>
                 <MenuItem value={"SPN Chats"}>SPN Chats</MenuItem>

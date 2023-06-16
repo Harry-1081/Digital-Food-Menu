@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: space-between;
     margin-inline-start: -20px;
+    list-style: none;
 }
 .nav-logo{
     height: 22.5px;
@@ -24,7 +25,15 @@
     align-items: center;
     justify-content: space-between;
     padding-left:5px;
-    height: 27px;
+    height: 26px;
     width: 500px;
+    border-radius: 5px;
+}
+.editsort-div{
+    padding-left: 10px;
+}
+.editsort-in{
+    height: 30px;
+    background-color: aliceblue;
     border-radius: 5px;
 }

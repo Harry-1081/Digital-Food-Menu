@@ -6,6 +6,7 @@ import { MdAddBox,MdEdit } from "react-icons/md"
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
 import { RiDeleteBinLine } from 'react-icons/ri';
+
 import { Tooltip } from '@mui/material';
 
 function AdminHome() {
@@ -24,7 +25,6 @@ function AdminHome() {
             console.log(result);
         });
     };
-  
     return (
         <>
          <motion.div className="product-page">
